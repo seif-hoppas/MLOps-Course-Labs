@@ -1,10 +1,10 @@
-# Final Project Checklist
+# Lab 1 Checklist
 
 ## Setup
 
 - [ ] Fork <https://github.com/Heba-Atef99/MLOps-Course-Labs>
 - [ ] Clone your fork locally
-- [ ] Install dependencies: `uv sync` or `pip install -e ".[dev]"`
+- [ ] Install dependencies: `uv sync`
 - [ ] Install pre-commit hooks: `uv run pre-commit install`
 - [ ] Place your best churn model into `data/model.joblib`
 
