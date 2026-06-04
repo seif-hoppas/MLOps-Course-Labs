@@ -1,0 +1,22 @@
+FROM python:3.12-slim
+
+# Install uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+# Set working directory
+WORKDIR /app
+
+# Copy dependency files
+COPY pyproject.toml uv.lock ./
+
+# Install dependencies using uv into the system Python
+RUN uv pip install --system --no-cache -e .
+
+# Copy the rest of the application
+COPY . .
+
+# Expose the API port
+EXPOSE 8000
+
+# Command to run the application
+CMD ["litestar", "--app", "main:app", "run", "--host", "0.0.0.0", "--port", "8000"]
